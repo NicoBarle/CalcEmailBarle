@@ -1,0 +1,25 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="text-center p-3">
+  <div class="form-row mb-4">
+        <div class="col">
+            Primo Numero
+            <input type="text" class="form-control" onfocus="this.value=''" name="n1" [formControl]="myForm.controls['n1']">
+            <div *ngIf="!myForm.controls['n1'].valid" class="alert alert-danger">"n1" non è valido</div>
+            <div *ngIf="myForm.controls['n1'].hasError('required')" class="alert alert-danger">"n1" è richiesto</div>
+        </div>
+    </div>
+  <div class="form-row mb-4">
+        <div class="col">
+            Secondo Numero
+            <input type="text" class="form-control" onfocus="this.value=''" name="n2" [formControl]="myForm.controls['n2']">
+            <div *ngIf="!myForm.controls['n2'].valid" class="alert alert-danger">"n2" non è valido</div>
+            <div *ngIf="myForm.controls['n2'].hasError('required')" class="alert alert-danger">"n2" è richiesto</div>
+        </div>
+    </div>
+    <button (click)="somma(n1,n2)">+</button>
+    <button (click)="sottr(n1,n2)">-</button>
+    <button (click)="molt(n1,n2)">*</button>
+    <button (click)="div(n1,n2)">/</button>
+</form>
+
+<app-ris [risultato]="risultato"></app-ris>
+
